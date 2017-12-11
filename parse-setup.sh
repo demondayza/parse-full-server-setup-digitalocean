@@ -84,10 +84,8 @@ echo -p "Do you have everything you need to start? (y/n)?"
 
 			echo "- Installing MongoDb Org. -"
 			sleep 1
-			sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-			echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.2 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 			sudo apt-get -y update
-			sudo apt-get -y install mongodb-org
+			sudo apt-get install -y mongodb
 			service mongod status
 
 			echo " ############### PARSE INSTALL #################"
@@ -200,7 +198,7 @@ echo -p "Do you have everything you need to start? (y/n)?"
 				-H "X-Parse-Application-Id: $NEW_ID_CLIENT" \
 				-H "Content-Type: application/json" \
 				-d '{"score":1337,"playerName":"Sammy","cheatMode":false}' \
-				https://localhost:1337/parse/classes/GameScore
+				https://localhost:27017/parse/classes/GameScore
 
 			echo "------------------------------------------------------------------"
 			echo "############## IMPORTANT - WRITE THIS DOWN  ######################"
